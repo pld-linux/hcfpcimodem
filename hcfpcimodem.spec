@@ -6,9 +6,10 @@ Release:	1
 License:	Freely redistributable and some GPL
 Group:		Base/Kernel
 Source0:	http://www.mbsi.ca/cnxtlindrv/hcf/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
-URL:		http://www.mbsi.ca/
+URL:		http://www.mbsi.ca/cnxtlindrv/
 Requires:	pciutils
 Conflicts:	hcflinmodem
+ExclusiveArch:	ix86
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -21,12 +22,13 @@ Sterownik do winmodemów HCF firmy Conexant dla Linuxa.
 %setup -q
 
 %build
-%{__make} all
+%{__make} all 
     
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install ROOT=$RPM_BUILD_ROOT
+%{__make} install \
+	ROOT=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
