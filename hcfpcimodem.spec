@@ -27,8 +27,8 @@ Sterownik do winmodemów HCF firmy Conexant dla Linuxa.
 %setup -q
 
 %build
-%{__make} all KERNELSRC=%{_kernelsrcdir} 
-    
+%{__make} all KERNELSRC=%{_kernelsrcdir}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
