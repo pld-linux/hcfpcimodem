@@ -1,8 +1,8 @@
 Summary:	Conexant HCF controllerless modem driver
 Summary(pl):	Sterownik do winmodemów HCF firmy Conexant
 Name:		hcfpcimodem
-Version:	0.98mbsibeta02110301
-%define	_rel	1
+Version:	0.99mbsibeta02123100
+%define	_rel	0.1
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	Freely redistributable and some GPL
 Group:		Base/Kernel
