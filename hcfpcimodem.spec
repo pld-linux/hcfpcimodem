@@ -7,6 +7,7 @@ Release:	%{_rel}@%{_kernel_ver_str}
 License:	Freely redistributable and some GPL
 Group:		Base/Kernel
 Source0:	http://www.mbsi.ca/cnxtlindrv/hcf/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
+# Source0-md5: 3fa155c87fc30cd3b03835d0c3c76c7d
 URL:		http://www.mbsi.ca/cnxtlindrv/
 %{!?_without_dist_kernel:BuildRequires:	kernel-source }
 BuildRequires:	%{kgcc_package}
