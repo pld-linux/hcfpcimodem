@@ -2,14 +2,18 @@ Summary:	Conexant HCF controllerless modem driver
 Summary(pl):	Sterownik do winmodemów HCF firmy Conexant
 Name:		hcfpcimodem
 Version:	0.98mbsibeta02110301
-Release:	1
+%define	_rel	1
+Release:	%{_rel}@%{_kernel_ver_str}
 License:	Freely redistributable and some GPL
 Group:		Base/Kernel
 Source0:	http://www.mbsi.ca/cnxtlindrv/hcf/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
 URL:		http://www.mbsi.ca/cnxtlindrv/
+%{!?_without_dist_kernel:BuildRequires:	kernel-source }
+BuildRequires:	%{kgcc_package}
+%{!?_without_dist_kernel:%requires_releq_kernel_up}
 Requires:	pciutils
 Conflicts:	hcflinmodem
-ExclusiveArch:	ix86
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,13 +26,14 @@ Sterownik do winmodemów HCF firmy Conexant dla Linuxa.
 %setup -q
 
 %build
-%{__make} all 
+%{__make} all KERNELSRC=%{_kernelsrcdir} 
     
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	ROOT=$RPM_BUILD_ROOT
+	ROOT=$RPM_BUILD_ROOT \
+	KERNELSRC=%{_kernelsrcdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
