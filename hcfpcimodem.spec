@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Conexant HCF controllerless modem driver for Linux.
 
 %description -l pl
-Sterownik do winmodemów HCF firmy Conexant dla Linuxa.
+Sterownik do winmodemów HCF firmy Conexant dla Linuksa.
 
 %prep
 %setup -q
